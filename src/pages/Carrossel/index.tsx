@@ -1,10 +1,10 @@
+import { Box, Button } from '@mui/material';
 import React, { useRef } from 'react';
 
 const Carrossel: React.FC = () => {
 	const listRef = useRef<HTMLUListElement | null>(null);
 
 	function scrollToIndex(index: number) {
-		// This line assumes a particular DOM structure:
 		if (listRef.current !== null) {
 			const listNode = listRef.current;
 			const imgNode = listNode.querySelectorAll('li > img')[index];
@@ -19,12 +19,22 @@ const Carrossel: React.FC = () => {
 	return (
 		<>
 			<nav>
-				<button onClick={() => scrollToIndex(0)}>Tom</button>
-				<button onClick={() => scrollToIndex(1)}>Maru</button>
-				<button onClick={() => scrollToIndex(2)}>Jellylorum</button>
+				<Button onClick={() => scrollToIndex(0)}>Tom</Button>
+				<Button onClick={() => scrollToIndex(1)}>Maru</Button>
+				<Button onClick={() => scrollToIndex(2)}>Jellylorum</Button>
 			</nav>
-			<div>
-				<ul ref={listRef}>
+
+			<Box sx={{ height: 300, display: 'flex' }}>
+				<ul
+					ref={listRef}
+					style={{
+						display: 'flex',
+						gap: '5px',
+						listStyle: 'none',
+						width: '300px',
+						overflow: 'hidden',
+					}}
+				>
 					<li>
 						<img
 							src="https://placekitten.com/g/200/200"
@@ -44,7 +54,7 @@ const Carrossel: React.FC = () => {
 						/>
 					</li>
 				</ul>
-			</div>
+			</Box>
 		</>
 	);
 };
