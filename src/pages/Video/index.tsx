@@ -1,4 +1,6 @@
-import { Button } from '@mui/material';
+import Pause from '@mui/icons-material/Pause';
+import Play from '@mui/icons-material/PlayArrow';
+import { Button, Grid } from '@mui/material';
 import { useRef, useState } from 'react';
 
 export default function Video() {
@@ -19,26 +21,29 @@ export default function Video() {
 	}
 
 	return (
-		<>
-			<Button
-				variant="contained"
-				sx={{ marginBottom: 2 }}
-				onClick={handleClick}
-			>
-				{isPlaying ? 'Pause' : 'Play'}
-			</Button>
-			<br />
-			<video
-				width="550"
-				ref={ref}
-				onPlay={() => setIsPlaying(true)}
-				onPause={() => setIsPlaying(false)}
-			>
-				<source
-					src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
-					type="video/mp4"
-				/>
-			</video>
-		</>
+		<Grid container direction="column" alignItems="center">
+			<Grid item>
+				<Button
+					variant="contained"
+					sx={{ marginBottom: 2 }}
+					onClick={handleClick}
+				>
+					{isPlaying ? <Pause /> : <Play />}
+				</Button>
+			</Grid>
+			<Grid item>
+				<video
+					width="550"
+					ref={ref}
+					onPlay={() => setIsPlaying(true)}
+					onPause={() => setIsPlaying(false)}
+				>
+					<source
+						src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+						type="video/mp4"
+					/>
+				</video>
+			</Grid>
+		</Grid>
 	);
 }

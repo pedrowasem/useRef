@@ -18,13 +18,13 @@ const Carrossel: React.FC = () => {
 
 	return (
 		<>
-			<nav>
+			<Box display="flex" justifyContent="center">
 				<Button onClick={() => scrollToIndex(0)}>Tom</Button>
 				<Button onClick={() => scrollToIndex(1)}>Maru</Button>
 				<Button onClick={() => scrollToIndex(2)}>Jellylorum</Button>
-			</nav>
+			</Box>
 
-			<Box sx={{ height: 300, display: 'flex' }}>
+			<Box sx={{ height: 300, display: 'flex' }} justifyContent="center">
 				<ul
 					ref={listRef}
 					style={{
