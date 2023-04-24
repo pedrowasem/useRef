@@ -5,7 +5,7 @@ import React, { useRef } from 'react';
 
 const Focus: React.FC = () => {
 	const inputElement = useRef<HTMLInputElement | null>(null);
-	const listRef = useRef<HTMLUListElement | null>(null);
+	const listRef = useRef<HTMLDivElement | null>(null);
 	let initialIndex = 0;
 
 	function focusInput() {
